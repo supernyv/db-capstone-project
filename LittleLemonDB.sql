@@ -113,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`order` (
   CONSTRAINT `order_staff`
     FOREIGN KEY (`staff_id`)
     REFERENCES `LittleLemonDB`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -135,13 +135,13 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`booking` (
   CONSTRAINT `booking_menu`
     FOREIGN KEY (`menu_id`)
     REFERENCES `LittleLemonDB`.`menu` (`menu_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `booking_order`
     FOREIGN KEY (`order_id`)
     REFERENCES `LittleLemonDB`.`order` (`order_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
