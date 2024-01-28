@@ -175,9 +175,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `LittleLemonDB`.`table`
+-- Table `LittleLemonDB`.`restaurant_table`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`table` (
+CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`restaurant_table` (
   `table_id` INT NOT NULL,
   `table_length` DECIMAL(10,2) NOT NULL,
   `table_with` DECIMAL(10,2) NOT NULL,
@@ -192,10 +192,10 @@ ENGINE = InnoDB;
 -- Table `LittleLemonDB`.`booking`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`booking` (
-  `booking_id` INT NOT NULL,
+  `booking_id` INT NOT NULL AUTO_INCREMENT,
   `booking_date` DATE NOT NULL,
   `table_id` INT NOT NULL,
-  `quantity` INT NOT NULL,
+  `number_of_guests` INT NOT NULL DEFAULT 1,
   `time_slot` TIME NOT NULL,
   `customer_id` INT NOT NULL,
   `staff_id` INT NOT NULL,
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `LittleLemonDB`.`booking` (
     ON UPDATE CASCADE,
   CONSTRAINT `booking_table`
     FOREIGN KEY (`table_id`)
-    REFERENCES `LittleLemonDB`.`table` (`table_id`)
+    REFERENCES `LittleLemonDB`.`restaurant_table` (`table_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

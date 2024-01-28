@@ -1,3 +1,5 @@
+USE LittleLemonDB;
+
 PREPARE GetOrderDetails FROM
 '
 SELECT 

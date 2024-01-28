@@ -1,3 +1,5 @@
+USE LittleLemonDB;
+
 DROP PROCEDURE IF EXISTS GetMaxQuantity;
 
 DELIMITER //
